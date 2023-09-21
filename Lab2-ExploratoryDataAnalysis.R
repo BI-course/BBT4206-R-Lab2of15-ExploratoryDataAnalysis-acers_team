@@ -16,6 +16,7 @@
 # See LICENSE file for licensing information.
 # *****************************************************************************
 
+
 # STEP 1. Install and use renv ----
 # **Initialization: Install and use renv ----
 # The renv package helps you create reproducible environments for your R
@@ -53,12 +54,12 @@ renv::init()
 # This can also be configured using the RStudio GUI when you click the project
 # file, e.g., "BBT4206-R.Rproj" in the case of this project. Then
 # navigate to the "Environments" tab and select "Use renv with this project".
-
+.libPaths()
 # As you continue to work on your project, you can install and upgrade
 # packages, using either:
 # install.packages() and update.packages or
 # renv::install() and renv::update()
-
+lapply(.libPaths(), list.files)
 # You can also clean up a project by removing unused packages using the
 # following command: renv::clean()
   
@@ -137,6 +138,7 @@ data("BostonHousing")
 dim(BostonHousing)
 dim(crop_dataset)
 dim(iris_dataset)
+
 dim(PimaIndiansDiabetes)
 
 # Data Types ----
