@@ -1,0 +1,65 @@
+The "BI 1 Student Performance Dataset" was collected between August and September 2023.
+It provides 101 observations and 100 variables of data about the Bachelor of Business
+Information Technology (BBIT) students at Strathmore University, Kenya.
+The data concerns the students' performance during the 
+"BBT4106: Business Intelligence I" course offered between 12th April and 19th July 2023.
+
+Contact person: Allan Omondi
+Email: aomondi_at_strathmore_dot_edu
+
+Below is metadata of some of the variables in the dataset:
+
+class_group: The class is divided into 3 groups and the student is either in group A, B, or C.
+gender: 1 = Male, 0 = Female
+YOB: Year of Birth
+regret_choosing_bi: B.1. Do you regret choosing the Business Intelligence option instead of the computer networking option? - Yes = 1, No = 0
+drop_bi_now: B.2. If given a chance now, would you drop the Business Intelligence option for the computer networking option? - Yes = 1, No = 0
+motivator: B.3. Which of the following motivates you? - The desire to succeed = 1, The fear of failure = 0
+
+Rating scale: 1 = Strongly disagree, 5 = Strongly agree
+read_content_before_lecture: C.1. I always read the content prior to a lecture
+anticipate_test_questions: C.2. I anticipate test questions and their answers as I read.
+answer_rhetorical_questions: C.3. I answer rhetorical questions in my mind during lectures to test my retention of the reading.
+find_terms_I_do_not_know: C.4. I find terms I do not know, and I re-learn those terms.
+copy_new_terms_in_reading_notebook: C.5. I copy new terms in a reading notebook and make sure I understand them.
+take_quizzes_and_use_results: C.6 I take quizzes and use the results to understand what I do not know.
+reorganise_course_outline: C.7. I reorganise the course outline into a study guide.
+write_down_important_points: C.8. I write down points that are important and test my understanding of the points periodically.
+space_out_revision: C.9. I space out my revision over the duration of the semester.
+studying_in_study_group: C.10. I do most of my studying in a study group.
+schedule_appointments: C.11. I schedule appointments during the lecturer's office hours to ask questions that I have about the course.
+goal_oriented: C.12. Do you have written down or typed (not the same as mental) SMART goals that you review at least every week?" - Yes = 1, No = 0
+
+C.13. Rate the following study techniques/methods according to how frequently you apply it.
+Rating scale: 1 = Never, 2 = Rarely, 3 = Frequently, 4 = Always
+spaced_repetition: C.13.a. [Spaced repetition: https://youtu.be/Z-zNHHpXoMM]
+testing_and_active_recall: C.13.b. [Testing and Active Recall: https://youtu.be/ukLnPbIffxE]
+interleaving: C.13.c. [Interleaving: https://youtu.be/k5A26Sc63F0]
+categorizing: C.13.d. [Categorizing: https://youtu.be/k5A26Sc63F0]
+retrospective_timetable: C.13.e. [Retrospective revision timetables: https://youtu.be/b7o09a7t4RA]
+cornell_notes: C.13.f. [Writing notes based on the Cornell method: https://youtu.be/WtW9IyE04OQ and https://youtu.be/4AiXfFTkMNQ]
+sq3r: C.13.g. [Reading notes based on the SQ3R method: http://bit.ly/2U8V9la]
+
+commute: D.1. What is your approximate commuting time from the hostel or from where you reside on most days? - 1 = Less than 15 minutes, 2 = 15 to 30 minutes, 3 = 30 minutes to 1 hour, 4 = Greater than 1 hour
+study_time: D.2. How much time do you spend studying for the course per week? - 1 = Less than 2 hours, 2 = 2 to 5 hours, 3 = 3 to 5 hours, 4 = 4 to 10 hours
+repeats_since_Y1: D.3. How many repeats have you had since 1st year?
+paid_tuition: D.4. Do you receive extra paid tuition related to the course? - Yes = 1, No = 0
+free_tuition: D.5. Do you receive extra free tuition related to the course? - Yes = 1, No = 0
+club_extra_curricular: D.6. Do you participate in club-related extra-curricular activities in/outside the University?
+sports_extra_curricular: D.7. Do you participate in sports-related extra-curricular activities in/outside the University?
+exercise_per_week: D.8. How many times per week do you exercise? - 0 = 0 times, 1 = 1 to 3 times, 2 = 4 to 6 times, 3 = More than 6 times
+meditate: D.9. How many times per week do you meditate? - 0 = 0 times, 1 = 1 to 3 times, 2 = 4 to 6 times, 3 = More than 6 times
+pray: D.10. How many times per week do you pray? - 0 = 0 times, 1 = 1 to 3 times, 2 = 4 to 6 times, 3 = More than 6 times
+internet: D.11. Do you have unlimited Internet access (not the use of mobile data bundles) in the hostel or where you reside?
+laptop: D.12. Do you have access to a personal (not shared) laptop?
+family_relationships: D.13. How would you rate the quality of your family relationships?
+friendships: D.14. How would you rate the quality of your friendships?
+romantic_relationships: D.15. How would you rate the quality of your romantic relationships? - 0 - I am not in any romantic relationship, 1 - Very bad, 2 - Bad, 3 - Good, 4 - Excellent
+spiritual_wellnes: D.16. How would you rate the quality of your spiritual wellness?
+financial_wellness: D.17. How would you rate the quality of your financial wellness?
+health: D.18. How would you rate the quality of your health status?
+day_out: D.19. How many times per week do you go out with friends (during the day)? - 0 - 0 times, 1 = 1 to 3 times, 2 = 4 to 6 times, 3 = More than 6 times
+night_out: D.20. How many times per week do you go out with friends (at night)? - 0 - 0 times, 1 = 1 to 3 times, 2 = 4 to 6 times, 3 = More than 6 times
+alcohol_or_narcotics: D.21. How many times per week do you drink alcohol or consume narcotics? - 0 - 0 times, 1 = 1 to 3 times, 2 = 4 to 6 times, 3 = More than 6 times
+mentor: D.22. Do you have a mentor other than the one formally assigned to you by the University? - Yes = 1, No = 0
+mentor_meetings: D.23. How many times per quarter (every 3 months) do you meet with your mentor? - 0 = 0 times, 1 = Less than 2 times, 2 = 2 to 3 times, 3 = More than 3 times
