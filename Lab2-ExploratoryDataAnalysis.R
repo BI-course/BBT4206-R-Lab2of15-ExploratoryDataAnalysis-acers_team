@@ -11,7 +11,7 @@
 # Note: The lecture contains both theory and practice. This file forms part of
 #       the practice. It has required lab work submissions that are graded for
 #       coursework marks.
-# NickBwalley - LocalBranch 09.09.2023
+# NickBwalley - LocalBranch 21.09.2023
 # License: GNU GPL-3.0-or-later
 # See LICENSE file for licensing information.
 # *****************************************************************************
@@ -832,6 +832,7 @@ renv::snapshot()
 # Create a new file called "Lab2-Submission-ExploratoryDataAnalysis.R".
 # Provide all the code you have used to perform an exploratory data analysis of
 # the "Class Performance Dataset" provided on the eLearning platform.
+##
 
 ## Part B ----
 # Upload *the link* to your "Lab2-Submission-ExploratoryDataAnalysis.R" hosted

@@ -9,6 +9,8 @@
     ]
   },
   "Packages": {
+<<<<<<< HEAD
+=======
     "R.cache": {
       "Package": "R.cache",
       "Version": "0.16.0",
@@ -689,6 +691,7 @@
       ],
       "Hash": "63d15047eb239f95160112bcadc4fcb9"
     },
+>>>>>>> 24bf583d39219a6d1585c28ac5625bfe85ac31f7
     "renv": {
       "Package": "renv",
       "Version": "1.0.2",
@@ -698,6 +701,8 @@
         "utils"
       ],
       "Hash": "4b22ac016fe54028b88d0c68badbd061"
+<<<<<<< HEAD
+=======
     },
     "rex": {
       "Package": "rex",
@@ -1000,6 +1005,7 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "0d0056cc5383fbc240ccd0cb584bf436"
+>>>>>>> 24bf583d39219a6d1585c28ac5625bfe85ac31f7
     }
   }
 }
