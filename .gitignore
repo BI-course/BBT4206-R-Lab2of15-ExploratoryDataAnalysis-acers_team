@@ -14,3 +14,5 @@ api_key.txt
 # Ignore compiled code
 *.dll
 *.so
+
+renv.lock
