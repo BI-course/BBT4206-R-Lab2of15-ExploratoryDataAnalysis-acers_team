@@ -11,10 +11,11 @@ l# *****************************************************************************
 # Note: The lecture contains both theory and practice. This file forms part of
 #       the practice. It has required lab work submissions that are graded for
 #       coursework marks.
-#
+# NickBwalley - LocalBranch 21.09.2023
 # License: GNU GPL-3.0-or-later
 # See LICENSE file for licensing information.
 # *****************************************************************************
+
 
 # STEP 1. Install and use renv ----
 # **Initialization: Install and use renv ----
@@ -53,12 +54,12 @@ renv::init()
 # This can also be configured using the RStudio GUI when you click the project
 # file, e.g., "BBT4206-R.Rproj" in the case of this project. Then
 # navigate to the "Environments" tab and select "Use renv with this project".
-
+.libPaths()
 # As you continue to work on your project, you can install and upgrade
 # packages, using either:
 # install.packages() and update.packages or
 # renv::install() and renv::update()
-
+lapply(.libPaths(), list.files)
 # You can also clean up a project by removing unused packages using the
 # following command: renv::clean()
   
@@ -137,6 +138,7 @@ data("BostonHousing")
 dim(BostonHousing)
 dim(crop_dataset)
 dim(iris_dataset)
+
 dim(PimaIndiansDiabetes)
 
 # Data Types ----
@@ -830,6 +832,7 @@ renv::snapshot()
 # Create a new file called "Lab2-Submission-ExploratoryDataAnalysis.R".
 # Provide all the code you have used to perform an exploratory data analysis of
 # the "Class Performance Dataset" provided on the eLearning platform.
+##
 
 ## Part B ----
 # Upload *the link* to your "Lab2-Submission-ExploratoryDataAnalysis.R" hosted

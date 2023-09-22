@@ -1,92 +1,20 @@
----
-title: "Business Intelligence Lab Submission Markdown"
-author: "<Specify your name here>"
-date: "<Specify the date when you submitted the lab>"
-output:
-  github_document: 
-    toc: yes
-    toc_depth: 4
-    fig_width: 6
-    fig_height: 4
-    df_print: default
-editor_options:
-  chunk_output_type: inline
----
-
-# Student Details
-
-|                                                   |                                             |
-|---------------------------|---------------------------------------------|
-| **Student ID Numbers and Names of Group Members** |  134879 Tulienge Lesley                     |
-| **BBIT 4.2 Group**                                |  Group C                                    |
-| **Course Code**                                   | BBT4206                                     |
-| **Course Name**                                   | Business Intelligence II                    |
-| **Program**                                       | Bachelor of Business Information Technology |
-| **Semester Duration**                             | 21^st^ August 2023 to 28^th^ November 2023  |
-
-# Setup Chunk
-
-**Note:** the following KnitR options have been set as the global defaults:\
-`knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE,                        collapse = FALSE, tidy = TRUE)`.
-
-> output:\
-> \
-> github_document:\
-> toc: yes\
-> toc_depth: 4\
-> fig_width: 6\
-> fig_height: 4\
-> df_print: default\
-> \
-> editor_options:\
-> chunk_output_type: console
-
-More KnitR options are documented here <https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html> and here <https://yihui.org/knitr/options/>.
-
-```{r setup, include=FALSE}
-library(formatR)
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE,
-                      collapse = FALSE, tidy = TRUE)
-```
-
-# Load the Datasets
-
-This code chunk loads a dataset with 101 rows and 100 columns using the readr library, displaying it in RStudio with column specifications.
-
-```{r Your Second Code Chunk, echo=FALSE}
+## Loading Datasets ----
+### STEP 1: Download sample datasets ----
+require("readr")
 library(readr)
+### STEP 2. Load the downloaded sample datasets ----
+# Load the datasets
 X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset <- read_csv("data/20230412-20230719-BI1-BBIT4-1-StudentPerformanceDataset.csv")
 View(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset)
-```
 
-#### Preview the Loaded Datasets
-
-This code chunk uses the **dim** function from the readr library to display the dimensions of the dataset **X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset**. It shows the number of rows (observations) and columns (attributes/variables/features) in the dataset.
-
-```{r Your Third Code Chunk}
-library(readr)
 dim(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset)
 
-```
-
-#### Identify the Data Types
-
-This code chunk uses the **sapply** function from the readr library to determine and display the data types (classes) of each column in the dataset **X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset**. Understanding data types is crucial for selecting appropriate visualization techniques and data analysis methods, especially when dealing with factors or numeric data that may require specific handling or conversion.
-
-```{r Your Fourth Code Chunk}
-library(readr)
 sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset, class)
-```
 
-# Descriptive Statistics
+# Descriptive Statistics ----
 
-Descriptive statistics are a set of techniques and metrics used to summarize and describe the main features, characteristics, and patterns within a dataset. These statistics provide a snapshot of the data's distribution, central tendency, variability, and other important properties.Before you can effectively use your data for tasks like building prediction models or drawing meaningful conclusions, it's crucial to have a deep understanding of the dataset.Understanding the context is essential for making informed decisions based on those results
+### STEP 3. Measures of Frequency ----
 
-#### Measures of Frequency
-
-This code calculates and displays the frequency and mode (most common value) for several categorical variables in a dataset, helping to understand the data's distribution and identify prevalent values.
-
-```{r 5th}
 X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_freq <- X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset$class_group
 cbind(frequency = table(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_freq),
       percentage = prop.table(table(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_freq)) *100)
@@ -133,70 +61,30 @@ X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_gender_mode <- names(ta
 ]
 print(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_gender_mode)
 
-
-```
-
-#### Measures the distribution
-
-The summary function provides key statistics and information for each variable, such as mean, median, quartiles, and count, helping to assess the distribution and characteristics of the data
-
-```{r 6th code}
+### STEP 4. Measure the distribution of the data for each variable ----
 summary(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset)
-```
 
-#### Measures the standard deviation
-
-This code calculates and returns the standard deviation for each of the selected columns (variables) in the dataset. Standard deviation measures the dispersion or spread of data points around the mean, providing insight into data variability
-
-```{r 7th code}
+### STEP 5. Measure the standard deviation of each variable ----
 sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset[, c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99)], sd)
 
-```
-
-#### Measures the variance
-
-This code calculates and returns the variance for each selected column. Variance quantifies how much individual data points deviate from the mean, offering another perspective on data dispersion.
-
-```{r 8th code}
+### STEP 6. Measure the variance of each variable ----
 sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset[, c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99)], var)
-```
 
-#### Measures the kurtosis
 
-This code calculates the kurtosis for the selected columns, which indicates the degree of data distribution's peakedness or tail heaviness.The Kurtosis informs you of how often outliers occur in the results
-
-```{r 9th code}
+### STEP 7. Measure the kurtosis of each variable ----
 if (!is.element("e1071", installed.packages()[, 1])) {
   install.packages("e1071", dependencies = TRUE)
 }
 require("e1071")
 sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset [c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99)],kurtosis, type=2)
-```
 
-#### Measures the skewness
-
-This code calculates the skewness for the selected columns, indicating the asymmetry in the data distribution. Positive skewness indicates a right-skewed distribution, while negative skewness suggests a left-skewed distribution 1. Skewness between -0.4 and 0.4 (inclusive) implies that there is no skew in the distribution of results; the distribution of results is symmetrical; it is a normal distribution. 2. Skewness above 0.4 implies a positive skew; a right-skewed distribution. 3. Skewness below -0.4 implies a negative skew; a left-skewed distribution
-
-```{r 10th code}
+### STEP 8. Measure the skewness of each variable ----
 sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset [c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99)],skewness, type=2)
-```
 
-#### Measures the covariance
-
-This code calculates the covariance matrix, which measures the degree of linear association or dependence between pairs of selected variables. The resulting covariance matrix is then displayed
-
-```{r 11th code}
+### STEP 9. Measure the covariance between variables ----
 X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_cov <- cov(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset [c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99)])
 View(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_cov)
-```
 
-#### Measures the correlation
-
-This code calculates the correlation matrix, which measures the strength and direction of linear relationships between pairs of selected variables. The resulting correlation matrix is then displayed.
-
-```{r 12th code}
+### STEP 10. Measure the correlation between variables ----
 X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_cor <- cor(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset [c(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99)])
 View(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_cor)
-```
-
-# Inferential Statistics
