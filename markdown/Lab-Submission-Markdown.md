@@ -9,19 +9,22 @@
     -   [Identify the Data Types](#identify-the-data-types)
 -   [Descriptive Statistics](#descriptive-statistics)
     -   [Measures of Frequency](#measures-of-frequency)
-    -   [Measures the distribution](#measures-the-distribution)
-    -   [Measures the standard deviation](#measures-the-standard-deviation)
-    -   [Measures the variance](#measures-the-variance)
-    -   [Measures the kurtosis](#measures-the-kurtosis)
-    -   [Measures the skewness](#measures-the-skewness)
-    -   [Measures the covariance](#measures-the-covariance)
-    -   [Measures the correlation](#measures-the-correlation)
+-   [Measures of Central Tendency](#measures-of-central-tendency)
+    -   [- Calculate the mode of studying in study group](#--calculate-the-mode-of-studying-in-study-group)
+        -   [Measures of distribution](#measures-of-distribution)
+        -   [Measures of standard deviation](#measures-of-standard-deviation)
+        -   [Measures of variance](#measures-of-variance)
+        -   [Measures of kurtosis](#measures-of-kurtosis)
+        -   [Measures of skewness](#measures-of-skewness)
+-   [Measures of Relationship](#measures-of-relationship)
+    -   [Measures of covariance](#measures-of-covariance)
+    -   [Measures of correlation](#measures-of-correlation)
 -   [Inferential Statistics](#inferential-statistics)
 
 # Student Details {#student-details}
 
 |                                                   |                                                              |
-|---------------------------------|---------------------------------------|
+|---------------------------------------------------|--------------------------------------------------------------|
 | **Student ID Numbers and Names of Group Members** |  134879 Tulienge Lesley                                      |
 | **BBIT 4.2 Group**                                |  Group C                                                     |
 | **Course Code**                                   | BBT4206                                                      |
@@ -50,12 +53,7 @@ More KnitR options are documented here <https://bookdown.org/yihui/rmarkdown-coo
 
 # Load the Datasets {#load-the-datasets}
 
-This code chunk loads a dataset with 101 rows and 100 columns using the readr library, displaying it in RStudio with column specifications.
-
-``` r
-library(readr)
-X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset <- read_csv("data/20230412-20230719-BI1-BBIT4-1-StudentPerformanceDataset.csv")
-```
+This code chunk loads a dataset with 101 rows and 100 columns using the readr library, displaying it in RStudio with column specifications. This data is well-structured, with numeric and categorical variables. It contains ratings, scores, and feedback related to different aspects of the course and students' performance. The data also includes some missing values indicated as "NA's."
 
 ```         
 ## Rows: 101 Columns: 100
@@ -67,10 +65,6 @@ X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset <- read_csv("data/20230
 ## 
 ## ℹ Use `spec()` to retrieve the full column specification for this data.
 ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-``` r
-View(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset)
 ```
 
 #### Preview the Loaded Datasets {#preview-the-loaded-datasets}
@@ -90,221 +84,13 @@ dim(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset)
 
 This code chunk uses the **sapply** function from the readr library to determine and display the data types (classes) of each column in the dataset **X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset**. Understanding data types is crucial for selecting appropriate visualization techniques and data analysis methods, especially when dealing with factors or numeric data that may require specific handling or conversion.
 
-``` r
-library(readr)
-sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset, class)
-```
-
-```         
-##                                                                                                                                                                                                                                                                                   class_group 
-##                                                                                                                                                                                                                                                                                   "character" 
-##                                                                                                                                                                                                                                                                                        gender 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                           YOB 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                            regret_choosing_bi 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                   drop_bi_now 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                     motivator 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                   read_content_before_lecture 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                     anticipate_test_questions 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                   answer_rhetorical_questions 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                      find_terms_I_do_not_know 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                            copy_new_terms_in_reading_notebook 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                  take_quizzes_and_use_results 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                     reorganise_course_outline 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                   write_down_important_points 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                            space_out_revision 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                       studying_in_study_group 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                         schedule_appointments 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                 goal_oriented 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                             spaced_repetition 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                     testing_and_active_recall 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                  interleaving 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                  categorizing 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                       retrospective_timetable 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                 cornell_notes 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                          sq3r 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                       commute 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                    study_time 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                              repeats_since_Y1 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                  paid_tuition 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                  free_tuition 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                              extra_curricular 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                       sports_extra_curricular 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                             exercise_per_week 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                      meditate 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                          pray 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                      internet 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                        laptop 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                          family_relationships 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                   friendships 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                        romantic_relationships 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                             spiritual_wellnes 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                            financial_wellness 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                        health 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                       day_out 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                     night_out 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                          alcohol_or_narcotics 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                        mentor 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                               mentor_meetings 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                              A - 1. I am enjoying the subject 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                          A - 2. Classes start and end on time 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                               A - 3. The learning environment is participative, involves learning by doing and is group-based 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                             A - 4. The subject content is delivered according to the course outline and meets my expectations 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                           A - 5. The topics are clear and logically developed 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                             A - 6. I am developing my oral and writing skills 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                            A - 7. I am developing my reflective and critical reasoning skills 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                       A - 8. The assessment methods are assisting me to learn 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                            A - 9. I receive relevant feedback 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                             A - 10. I read the recommended readings and notes 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                   A - 11. I use the eLearning material posted 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                         B - 1. Concept 1 of 6: Principles of Business Intelligence and the DataOps Philosophy 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                             B - 2. Concept 3 of 6: Linear Algorithms for Predictive Analytics 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                     C - 2. Quizzes at the end of each concept 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                           C - 3. Lab manuals that outline the steps to follow during the labs 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                           C - 4. Required lab work submissions at the end of each lab manual that outline the activity to be done on your own 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                          C - 5. Supplementary videos to watch 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                    C - 6. Supplementary podcasts to listen to 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                          C - 7. Supplementary content to read 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                        C - 8. Lectures slides 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                            C - 9. Lecture notes on some of the lecture slides 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-## C - 10. The quality of the lectures given (quality measured by the breadth (the full span of knowledge of a subject) and depth (the extent to which specific topics are focused upon, amplified, and explored) of learning - NOT quality measured by how fun/comical/lively the lectures are) 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                              C - 11. The division of theory and practice such that most of the theory is done during the recorded online classes and most of the practice is done during the physical classes 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                      C - 12. The recordings of online classes 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                       D - 1. \nWrite two things you like about the teaching and learning in this unit so far. 
-##                                                                                                                                                                                                                                                                                   "character" 
-##                                                                                                                                                          D - 2. Write at least one recommendation to improve the teaching and learning in this unit (for the remaining weeks in the semester) 
-##                                                                                                                                                                                                                                                                                   "character" 
-##                                                                                                                                                                                                                                                              Average Course Evaluation Rating 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                     Average Level of Learning Attained Rating 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                             Average Pedagogical Strategy Effectiveness Rating 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                              Project: Section 1-4: (20%) x/10 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                             Project: Section 5-11: (50%) x/10 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                Project: Section 12: (30%) x/5 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                              Project: (10%): x/30 x 100 TOTAL 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                       Quiz 1 on Concept 1 (Introduction) x/32 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                             Quiz 3 on Concept 3 (Linear) x/15 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                         Quiz 4 on Concept 4 (Non-Linear) x/22 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                       Quiz 5 on Concept 5 (Dashboarding) x/10 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                               Quizzes and  Bonus Marks (7%): x/79 x 100 TOTAL 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                 Lab 1 - 2.c. - (Simple Linear Regression) x/5 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                Lab 2 - 2.e. -  (Linear Regression using Gradient Descent) x/5 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                               Lab 3 - 2.g. - (Logistic Regression using Gradient Descent) x/5 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                             Lab 4 - 2.h. - (Linear Discriminant Analysis) x/5 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                          Lab 5 - Chart JS Dashboard Setup x/5 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                      Lab Work (7%) x/25 x 100 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                        CAT 1 (8%): x/38 x 100 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                       CAT 2 (8%): x/100 x 100 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                    Attendance Waiver Granted: 1 = Yes, 0 = No 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                        Absenteeism Percentage 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                  Coursework TOTAL: x/40 (40%) 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                              EXAM: x/60 (60%) 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                        TOTAL = Coursework TOTAL + EXAM (100%) 
-##                                                                                                                                                                                                                                                                                     "numeric" 
-##                                                                                                                                                                                                                                                                                         GRADE 
-##                                                                                                                                                                                                                                                                                   "character"
-```
-
 # Descriptive Statistics {#descriptive-statistics}
 
 Descriptive statistics are a set of techniques and metrics used to summarize and describe the main features, characteristics, and patterns within a dataset. These statistics provide a snapshot of the data's distribution, central tendency, variability, and other important properties.Before you can effectively use your data for tasks like building prediction models or drawing meaningful conclusions, it's crucial to have a deep understanding of the dataset.Understanding the context is essential for making informed decisions based on those results
 
 #### Measures of Frequency {#measures-of-frequency}
 
-This code calculates and displays the frequency and mode (most common value) for several categorical variables in a dataset, helping to understand the data's distribution and identify prevalent values.
+This code calculates and displays the frequency and mode (most common value) for several categorical variables in a dataset, helping to understand the data's distribution and identify prevalent values.Some datasets show relatively even distributions, while others have dominant categories. The frequencies provide insights into the composition of each dataset.
 
 ``` r
 X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_freq <- X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset$class_group
@@ -430,7 +216,21 @@ print(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_gender_mode)
 ## [1] "1"
 ```
 
-#### Measures the distribution {#measures-the-distribution}
+# Measures of Central Tendency {#measures-of-central-tendency}
+
+### - Calculate the mode of studying in study group
+
+``` r
+studentperformance_mode <- names(table(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset$studying_in_study_group))[which(table(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset$studying_in_study_group) ==
+    max(table(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset$studying_in_study_group)))]
+print(studentperformance_mode)
+```
+
+```         
+## [1] "1"
+```
+
+#### Measures of distribution {#measures-of-distribution}
 
 The summary function provides key statistics and information for each variable, such as mean, median, quartiles, and count, helping to assess the distribution and characteristics of the data
 
@@ -873,7 +673,7 @@ summary(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset)
 ## 
 ```
 
-#### Measures the standard deviation {#measures-the-standard-deviation}
+#### Measures of standard deviation {#measures-of-standard-deviation}
 
 This code calculates and returns the standard deviation for each of the selected columns (variables) in the dataset. Standard deviation measures the dispersion or spread of data points around the mean, providing insight into data variability
 
@@ -1081,7 +881,7 @@ sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset[, c(2, 3, 4, 5, 
 ##                                                                                                                                                                                                                                                                                    15.7253295
 ```
 
-#### Measures the variance {#measures-the-variance}
+#### Measures of variance {#measures-of-variance}
 
 This code calculates and returns the variance for each selected column. Variance quantifies how much individual data points deviate from the mean, offering another perspective on data dispersion.
 
@@ -1289,7 +1089,7 @@ sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset[, c(2, 3, 4, 5, 
 ##                                                                                                                                                                                                                                                                                  247.28598699
 ```
 
-#### Measures the kurtosis {#measures-the-kurtosis}
+#### Measures of kurtosis {#measures-of-kurtosis}
 
 This code calculates the kurtosis for the selected columns, which indicates the degree of data distribution's peakedness or tail heaviness.The Kurtosis informs you of how often outliers occur in the results
 
@@ -1508,7 +1308,7 @@ sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset[c(2, 3, 4, 5, 6,
 ##                                                                                                                                                                                                                                                                                    0.38148565
 ```
 
-#### Measures the skewness {#measures-the-skewness}
+#### Measures of skewness {#measures-of-skewness}
 
 This code calculates the skewness for the selected columns, indicating the asymmetry in the data distribution. Positive skewness indicates a right-skewed distribution, while negative skewness suggests a left-skewed distribution 1. Skewness between -0.4 and 0.4 (inclusive) implies that there is no skew in the distribution of results; the distribution of results is symmetrical; it is a normal distribution. 2. Skewness above 0.4 implies a positive skew; a right-skewed distribution. 3. Skewness below -0.4 implies a negative skew; a left-skewed distribution
 
@@ -1716,7 +1516,9 @@ sapply(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset[c(2, 3, 4, 5, 6,
 ##                                                                                                                                                                                                                                                                                   -0.47138413
 ```
 
-#### Measures the covariance {#measures-the-covariance}
+# Measures of Relationship {#measures-of-relationship}
+
+#### Measures of covariance {#measures-of-covariance}
 
 This code calculates the covariance matrix, which measures the degree of linear association or dependence between pairs of selected variables. The resulting covariance matrix is then displayed
 
@@ -1730,7 +1532,7 @@ X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_cov <- cov(X20230412_20
 View(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_cov)
 ```
 
-#### Measures the correlation {#measures-the-correlation}
+#### Measures of correlation {#measures-of-correlation}
 
 This code calculates the correlation matrix, which measures the strength and direction of linear relationships between pairs of selected variables. The resulting correlation matrix is then displayed.
 
