@@ -1,7 +1,8 @@
 ---
 title: "Business Intelligence Lab Submission Markdown"
-author: "<Specify your name here>"
-date: "<Specify the date when you submitted the lab>"
+author: "Mongare Sarah,Bwalley Nicholas,Gitonga Angela,Cheptoi Millicent
+,Tulienge Lesley"
+date: 22-09-2023
 output:
   github_document: 
     toc: yes
@@ -15,14 +16,14 @@ editor_options:
 
 # Student Details
 
-|                                                   |                                             |
-|---------------------------|---------------------------------------------|
-| **Student ID Numbers and Names of Group Members** |  134879 Tulienge Lesley                     |
-| **BBIT 4.2 Group**                                |  Group C                                    |
-| **Course Code**                                   | BBT4206                                     |
-| **Course Name**                                   | Business Intelligence II                    |
-| **Program**                                       | Bachelor of Business Information Technology |
-| **Semester Duration**                             | 21^st^ August 2023 to 28^th^ November 2023  |
+|                                                   |                                                                                                                     |
+|-----------------------------------------------|-------------------------|
+| **Student ID Numbers and Names of Group Members** | 134879 Tulienge Lesley 133834 Mongare Sarah 122790 Bwalley Nicholas 124461 Gitonga Angela 133928 Cheptoi Millicent |
+| **BBIT 4.2 Group**                                |  Group C                                                                                                            |
+| **Course Code**                                   | BBT4206                                                                                                             |
+| **Course Name**                                   | Business Intelligence II                                                                                            |
+| **Program**                                       | Bachelor of Business Information Technology                                                                         |
+| **Semester Duration**                             | 21^st^ August 2023 to 28^th^ November 2023                                                                          |
 
 # Setup Chunk
 
@@ -134,7 +135,9 @@ X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_gender_mode <- names(ta
 print(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_gender_mode)
 
 ```
+
 # Measures of Central Tendency
+
 ### - Calculate the mode of studying in study group
 
 ```{r code}
