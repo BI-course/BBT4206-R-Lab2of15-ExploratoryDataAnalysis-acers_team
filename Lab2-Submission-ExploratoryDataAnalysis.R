@@ -61,6 +61,13 @@ X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_gender_mode <- names(ta
 ]
 print(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset_gender_mode)
 
+## Measures of Central Tendency ----
+### STEP 8. Calculate the mode
+studentperformance_mode <- names(table(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset$studying_in_study_group))[
+  which(table(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset$studying_in_study_group) == max(table(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset$studying_in_study_group)))
+]
+print(studentperformance_mode)
+
 ### STEP 4. Measure the distribution of the data for each variable ----
 summary(X20230412_20230719_BI1_BBIT4_1_StudentPerformanceDataset)
 
